@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BGM Consulting — Mathematical Consulting, Dublin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1D9E75;
+      --green-light: #E1F5EE;
+      --green-dark: #0F6E56;
+      --text: #1a1a1a;
+      --text-muted: #555;
+      --text-faint: #999;
+      --border: #e0e0e0;
+      --bg: #ffffff;
+      --bg-secondary: #f8f8f6;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--text);
+    }
+
+    .nav-logo span { color: var(--green); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    /* HERO */
+    .hero {
+      padding: 4rem 1rem 3rem;
+      border-bottom: 0.5px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 46px;
+      line-height: 1.15;
+      font-weight: 400;
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 0.65rem 1.5rem;
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-size: 13px;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border-radius: 2px;
+    }
+
+    .hero-cta:hover { background: var(--green-light); }
+
+    .hero-watermark {
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'DM Serif Display', serif;
+      font-size: 140px;
+      color: #e8e8e8;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 3rem 1rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+    }
+
+    /* EXPERTISE GRID */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .exp-cell {
+      padding: 1.25rem;
+      background: var(--bg);
+      border-right: 0.5px solid var(--border);
+    }
+
+    .exp-cell:last-child { border-right: none; }
+
+    .exp-number {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .exp-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    /* TEAM */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .team-card {
+      background: var(--bg-secondary);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .team-initials {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--green-dark);
+      margin-bottom: 0.9rem;
+    }
+
+    .team-name {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .team-role {
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      color: var(--green);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+
+    .team-desc {
+      font-size: 12px;
+      line-height: 1.55;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* SERVICES */
+    .services-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 540px) {
+      .services-list { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 32px; }
+      .nav-links { display: none; }
+    }
+
+    .service-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem;
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .service-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .service-text {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .service-text small {
+      display: block;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-top: 2px;
+    }
+
+    /* CONTACT */
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      font-style: italic;
+    }
+
+    .contact-email {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      color: var(--green);
+      padding: 0.6rem 1.25rem;
+      border: 0.5px solid var(--green);
+      border-radius: 2px;
+      text-decoration: none;
+    }
+
+    .contact-email:hover { background: var(--green-light); }
+
+    /* FOOTER */
+    footer {
+      padding: 1.25rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-faint);
+      font-family: 'DM Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">BGM<span>.</span>consulting</div>
+    <ul class="nav-links">
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-watermark" aria-hidden="true">∑</div>
+    <div class="hero-label">Mathematical consulting · Dublin, Ireland</div>
+    <h1>Where <em>discrete mathematics</em> meets real-world problems</h1>
+    <p class="hero-sub">BGM Consulting brings PhD-level expertise in finite mathematics, algebraic coding theory, combinatorics, and information theory to industry and research partners worldwide.</p>
+    <a href="#contact" class="hero-cta">Get in touch →</a>
+  </section>
+
+  <section class="section" id="expertise">
+    <div class="section-label">Areas of expertise</div>
+    <div class="expertise-grid">
+      <div class="exp-cell">
+        <div class="exp-number">01</div>
+        <div class="exp-title">Algebraic coding theory</div>
+        <div class="exp-desc">Error-correcting codes, codes over rings, group-theoretic constructions, minimum distance analysis</div>
+      </div>
+      <div class="exp-cell">
+        <div class="exp-number">02</div>
+        <div class="exp-title">Finite fields &amp; cryptography</div>
+        <div class="exp-desc">Boolean functions, APN functions, bent functions, symmetric cryptosystem analysis</div>
+      </div>
+      <div class="exp-cell">
+        <div class="exp-number">03</div>
+        <div class="exp-title">Combinatorics &amp; design theory</div>
+        <div class="exp-desc">Combinatorial designs, group testing, transversal designs, ECGT applications in MedTech</div>
+      </div>
+      <div class="exp-cell">
+        <div class="exp-number">04</div>
+        <div class="exp-title">Information theory</div>
+        <div class="exp-desc">Algebraic number theory applied to communications, space-time codes, network coding</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="team">
+    <div class="section-label">The team</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-initials">MG</div>
+        <div class="team-name">Marcus Greferath</div>
+        <div class="team-role">PhD · Co-Founder</div>
+        <div class="team-desc">Associate Professor, University College Dublin. Research in algebraic coding theory (codes over rings, Boolean semifield B₂), error-correcting group testing, NMR signal processing, and combinatorial design theory. International patents. Finland Distinguished Professor, Aalto University 2015–2019.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-initials">CB</div>
+        <div class="team-name">Carl Bracken</div>
+        <div class="team-role">PhD · Co-Founder</div>
+        <div class="team-desc">Specialist in combinatorics, finite fields, coding theory, and cryptography. Foundational results on APN functions and bent functions. Former senior research fellow, Nanyang Technological University. 750+ citations.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-initials">NM</div>
+        <div class="team-name">Nadya Markin</div>
+        <div class="team-role">PhD · Co-Founder</div>
+        <div class="team-desc">Specialist in algebraic number theory, coding theory, and information theory. Contributions to space-time codes, network coding, and linear rank inequalities. Former researcher, Nanyang Technological University. 510+ citations.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="section-label">What we offer</div>
+    <div class="services-list">
+      <div class="service-item">
+        <div class="service-dot"></div>
+        <div class="service-text">Technical due diligence
+          <small>Evaluation of error-correction or security-critical systems for investors, startups, or R&amp;D labs</small>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-dot"></div>
+        <div class="service-text">Algorithm design &amp; analysis
+          <small>Custom coding-theoretic or combinatorial solutions for data integrity and communications problems</small>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-dot"></div>
+        <div class="service-text">Expert advisory
+          <small>Scientific review, patent assessment, and expert witness services in discrete mathematics</small>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-dot"></div>
+        <div class="service-text">Research collaboration
+          <small>Joint R&amp;D with industry labs, technology transfer, and grant-supported partnerships</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="contact-row">
+      <div class="contact-text">Let's work together.</div>
+      <a href="mailto:info@bgm-consulting.ie" class="contact-email">info@bgm-consulting.ie</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 BGM Consulting Ltd · Dublin, Ireland</span>
+    <span>Registered in Ireland</span>
+  </footer>
+
+</body>
+</html>
