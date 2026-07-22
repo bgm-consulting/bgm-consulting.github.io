@@ -222,40 +222,35 @@
       margin-bottom: 1.75rem;
     }
 
-    /* EXPERTISE GRID */
-    .expertise-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5px;
-      background: var(--border);
+    /* EXPERTISE LIST */
+    .expertise-list {
       border: 0.5px solid var(--border);
       border-radius: 8px;
       overflow: hidden;
     }
 
-    @media (min-width: 820px) {
-      .expertise-grid { grid-template-columns: repeat(4, 1fr); }
+    .exp-row {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.1rem 1.25rem;
+      border-bottom: 0.5px solid var(--border);
     }
 
-    .exp-cell {
-      padding: 1.25rem;
-      background: var(--bg);
-    }
-
-    /* lets a trailing odd-one-out card span the full row instead of leaving a gap */
-    .exp-cell:last-child { grid-column: 1 / -1; }
+    .exp-row:last-child { border-bottom: none; }
 
     .exp-number {
+      flex-shrink: 0;
+      width: 24px;
+      padding-top: 0.15rem;
       font-family: 'DM Mono', monospace;
       font-size: 11px;
       color: var(--green);
-      margin-bottom: 0.5rem;
     }
 
     .exp-title {
       font-size: 14px;
       font-weight: 700;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
       line-height: 1.3;
     }
 
@@ -325,7 +320,6 @@
 
     @media (max-width: 540px) {
       .services-list { grid-template-columns: 1fr; }
-      .expertise-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 32px; }
 
       .nav-toggle-label { display: flex; }
@@ -445,31 +439,41 @@
 
   <section class="section" id="expertise">
     <div class="section-label">Areas of expertise</div>
-    <div class="expertise-grid">
-      <div class="exp-cell">
+    <div class="expertise-list">
+      <div class="exp-row">
         <div class="exp-number">01</div>
-        <div class="exp-title">Applicable Algebra &amp; Mathematics of Communications</div>
-        <div class="exp-desc">Error-correction, Algorithms, Codes over general Alphabets, Algebraic Constructions, Distance Analysis</div>
+        <div>
+          <div class="exp-title">Applicable Algebra &amp; Mathematics of Communications</div>
+          <div class="exp-desc">Error-correction, Algorithms, Codes over general Alphabets, Algebraic Constructions, Distance Analysis</div>
+        </div>
       </div>
-      <div class="exp-cell">
+      <div class="exp-row">
         <div class="exp-number">02</div>
-        <div class="exp-title">Finite fields &amp; Cryptography</div>
-        <div class="exp-desc">Boolean functions, APN functions, bent functions, symmetric cryptosystem analysis</div>
+        <div>
+          <div class="exp-title">Finite fields &amp; Cryptography</div>
+          <div class="exp-desc">Boolean functions, APN functions, bent functions, symmetric cryptosystem analysis</div>
+        </div>
       </div>
-      <div class="exp-cell">
+      <div class="exp-row">
         <div class="exp-number">03</div>
-        <div class="exp-title">Combinatorics &amp; design theory</div>
-        <div class="exp-desc">Combinatorial designs, group testing, transversal designs, ECGT applications in MedTech</div>
+        <div>
+          <div class="exp-title">Combinatorics &amp; design theory</div>
+          <div class="exp-desc">Combinatorial designs, group testing, transversal designs, ECGT applications in MedTech</div>
+        </div>
       </div>
-      <div class="exp-cell">
+      <div class="exp-row">
         <div class="exp-number">04</div>
-        <div class="exp-title">Foundations and Mobile Communications</div>
-        <div class="exp-desc">Algebraic number theory, space-time codes, network coding</div>
+        <div>
+          <div class="exp-title">Foundations and Mobile Communications</div>
+          <div class="exp-desc">Algebraic number theory, space-time codes, network coding</div>
+        </div>
       </div>
-      <div class="exp-cell">
+      <div class="exp-row">
         <div class="exp-number">05</div>
-        <div class="exp-title">Applications of Discrete Structures in Engineering and Sciences</div>
-        <div class="exp-desc">Sequence Design, Spectroscopical Methods in Nuclear-Magnetic Resonance (NMR)</div>
+        <div>
+          <div class="exp-title">Applications of Discrete Structures in Engineering and Sciences</div>
+          <div class="exp-desc">Sequence Design, Spectroscopical Methods in Nuclear-Magnetic Resonance (NMR)</div>
+        </div>
       </div>
     </div>
   </section>
