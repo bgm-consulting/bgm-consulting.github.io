@@ -139,6 +139,7 @@
     .hero-cta:hover { background: var(--green-light); }
 
     .hero-watermark {
+      display: none;
       position: absolute;
       right: 1.5rem;
       top: 50%;
@@ -149,6 +150,10 @@
       line-height: 1;
       pointer-events: none;
       user-select: none;
+    }
+
+    @media (min-width: 820px) {
+      .hero-watermark { display: block; }
     }
 
     /* SECTIONS */
@@ -169,10 +174,14 @@
     /* EXPERTISE GRID */
     .expertise-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       border: 0.5px solid var(--border);
       border-radius: 8px;
       overflow: hidden;
+    }
+
+    @media (min-width: 820px) {
+      .expertise-grid { grid-template-columns: repeat(4, 1fr); }
     }
 
     .exp-cell {
@@ -263,6 +272,7 @@
 
     @media (max-width: 540px) {
       .services-list { grid-template-columns: 1fr; }
+      .expertise-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 32px; }
 
       .nav-toggle-label { display: flex; }
