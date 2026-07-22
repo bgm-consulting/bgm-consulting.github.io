@@ -226,6 +226,8 @@
     .expertise-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 0.5px;
+      background: var(--border);
       border: 0.5px solid var(--border);
       border-radius: 8px;
       overflow: hidden;
@@ -238,10 +240,10 @@
     .exp-cell {
       padding: 1.25rem;
       background: var(--bg);
-      border-right: 0.5px solid var(--border);
     }
 
-    .exp-cell:last-child { border-right: none; }
+    /* lets a trailing odd-one-out card span the full row instead of leaving a gap */
+    .exp-cell:last-child { grid-column: 1 / -1; }
 
     .exp-number {
       font-family: 'DM Mono', monospace;
@@ -446,7 +448,7 @@
     <div class="expertise-grid">
       <div class="exp-cell">
         <div class="exp-number">01</div>
-        <div class="exp-title">Applicable Algebra: Algebraic coding theory</div>
+        <div class="exp-title">Applicable Algebra &amp; Mathematics of Communications</div>
         <div class="exp-desc">Error-correction, Algorithms, Codes over general Alphabets, Algebraic Constructions, Distance Analysis</div>
       </div>
       <div class="exp-cell">
@@ -463,6 +465,11 @@
         <div class="exp-number">04</div>
         <div class="exp-title">Foundations and Mobile Communications</div>
         <div class="exp-desc">Algebraic number theory, space-time codes, network coding</div>
+      </div>
+      <div class="exp-cell">
+        <div class="exp-number">05</div>
+        <div class="exp-title">Applications of Discrete Structures in Engineering and Sciences</div>
+        <div class="exp-desc">Sequence Design, Spectroscopical Methods in Nuclear-Magnetic Resonance (NMR)</div>
       </div>
     </div>
   </section>
