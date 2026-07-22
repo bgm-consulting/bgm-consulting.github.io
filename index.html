@@ -55,6 +55,22 @@
       --border: #e0e0e0;
       --bg: #ffffff;
       --bg-secondary: #f8f8f6;
+      --watermark: #e8e8e8;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --green: #34D399;
+        --green-light: #123729;
+        --green-dark: #34D399;
+        --text: #ededed;
+        --text-muted: #b0b0b0;
+        --text-faint: #7d7d7d;
+        --border: #2b2e2d;
+        --bg: #111312;
+        --bg-secondary: #1a1d1c;
+        --watermark: #1d201f;
+      }
     }
 
     body {
@@ -181,7 +197,7 @@
       transform: translateY(-50%);
       font-family: 'DM Serif Display', serif;
       font-size: 140px;
-      color: #e8e8e8;
+      color: var(--watermark);
       line-height: 1;
       pointer-events: none;
       user-select: none;
